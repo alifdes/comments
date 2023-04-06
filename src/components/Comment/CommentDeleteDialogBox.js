@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { ReplayButton } from "../../styles/CommentStyles";
 
+const Button = styled(ReplayButton)`
+height: 50px;
+width: 100%;
+position: relative;
+`;
 const Wrapper = styled.div`
   .delete-message-dialog {
     width: 80%;
@@ -15,7 +20,7 @@ const Wrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    @media only screen and (min-width: 1000px) {
+    @media only screen and (min-width: 750px) {
       width: 300px;
     }
   }
@@ -51,18 +56,18 @@ function CommentDeleteDialogBox({ setShowDialog, message, heading }) {
         <h2>{heading}</h2>
         <p>{message}</p>
         <div className="delete-message-dialog-buttons">
-          <ReplayButton
+          <Button
             onClick={handleCancel}
-            style={{ background: "#919299", position: "relative" }}
+            style={{ background: "#919299" }}
           >
             NO,CANCEL
-          </ReplayButton>
-          <ReplayButton
+          </Button>
+          <Button
             onClick={handleDelete}
-            style={{ background: "red", position: "relative" }}
+            style={{ background: "red" }}
           >
             YES, DELETE
-          </ReplayButton>
+          </Button>
         </div>
       </div>
     </Wrapper>

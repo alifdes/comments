@@ -18,7 +18,7 @@ const CountSection = styled.div`
   border-radius: 8px;
   align-items: center;
   background: #f5f6fa;
-  @media only screen and (min-width: 1000px) {
+  @media only screen and (min-width: 750px) {
     margin: 15px;
     flex-direction: column;
     width: 50px;
@@ -63,7 +63,7 @@ const ReplaySection = styled.span`
     color: #dadbe6;
   }
 
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 750px) {
     position: absolute;
     bottom: 0;
     right: 20px;
@@ -81,7 +81,7 @@ const EditSection = styled.div`
     color: #dadbe6;
   }
 
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 750px) {
     position: absolute;
     bottom: 0;
     right: 20px;

@@ -9,7 +9,7 @@ const Container = styled.section`
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-  @media only screen and (min-width: 1000px) {
+  @media only screen and (min-width: 750px) {
     position: relative;
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@ const SubContainer = styled.div`
   padding-left: 20px;
   border-left: 2px solid #9999a1;
   margin-left: 0;
-  @media only screen and (min-width: 1000px) {
+  @media only screen and (min-width: 750px) {
     margin-left: 40px;
   }
 `;

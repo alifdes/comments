@@ -11,7 +11,7 @@ export const Comments = styled.ul`
   flex-direction: column-reverse;
   padding: 20px;
   position: relative;
-  @media only screen and (min-width: 1000px) {
+  @media only screen and (min-width: 750px) {
     flex-direction: row;
     padding: 10px;
   }
@@ -28,7 +28,7 @@ export const ReplayButton = styled.button`
   &:hover {
     background: #9699d6;
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 750px) {
     position: absolute;
     right: 0px;
   }
