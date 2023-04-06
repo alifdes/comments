@@ -106,12 +106,12 @@ const CommentCard = ({ data, currentUser,onAddReply }) => {
               <CommentUser>
                 {" "}
                 {data.user?.username}{" "}
-                {currentUser === data.user?.username ? <Text>you</Text> : <></>}
+                {currentUser.username === data.user?.username ? <Text>you</Text> : <></>}
               </CommentUser>
               <span style={{ paddingLeft: "5px" }}> {data.createdAt}</span>
             </CommentAuthor>
 
-            {currentUser === data.user?.username ? (
+            {currentUser.username === data.user?.username ? (
               <div>
                 <Button
                   style={{ color: "red", paddingRight: "3px" }}
@@ -134,7 +134,7 @@ const CommentCard = ({ data, currentUser,onAddReply }) => {
             )}
           </CommentHeader>
 
-          {currentUser === data.user?.username && isEdit ? (
+          {currentUser.username === data.user?.username && isEdit ? (
             <CommentContent>
               <CommentInput>{data.content}</CommentInput>
               <ReplayButton
@@ -149,7 +149,7 @@ const CommentCard = ({ data, currentUser,onAddReply }) => {
           )}
         </Comment>
       </Comments>
-      {showReply && <CommentReplies setShowReply={setShowReply}  onAddReply={onAddReply} />}
+      {showReply && <CommentReplies setShowReply={setShowReply} data={currentUser}  />}
       {showDialog && (
         <CommentDeleteDialogBox
         setShowDialog={setShowDialog}

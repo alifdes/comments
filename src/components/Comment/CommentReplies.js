@@ -4,12 +4,12 @@ import { CommentInput, Comments, ReplayButton } from "../../styles/CommentStyles
 import axios from "axios";
 import { useMutation } from "react-query";
 
-const CommentReplies = ({setShowReply }) => {
+const CommentReplies = ({setShowReply,data }) => {
 
   return (
     <Comments>
       <img
-        src="/images/avatars/image-juliusomo.webp"
+        src={data.image.webp}
         style={{ width: "30px", height: "30px", margin: "12px" }}
       />
       <CommentInput/>

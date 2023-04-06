@@ -52,11 +52,11 @@ const CommentsScreen = () => {
     <Container>
     {comments.map((comment) => (
       <>
-        <CommentCard data={comment} currentUser={currentUser.username}  />
+        <CommentCard data={comment} currentUser={currentUser}  />
         {comment.replies.length > 0 && (
           <SubContainer>
             {comment.replies.map((reply) => (
-              <CommentCard data={reply} currentUser={currentUser.username} />
+              <CommentCard data={reply} currentUser={currentUser} />
             ))}
           </SubContainer>
         )}
