@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useQuery, useMutation } from "react-query";
-import { getComments } from "../services/comments";
 import CommentCard from "../components/Comment/CommentCard";
 import axios from "axios";
 
