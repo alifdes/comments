@@ -34,12 +34,12 @@ const CommentsScreen = () => {
   const [comments, setComments] = useState([]);
 
   const { data: currentUser } = useQuery("currentUser", async () => {
-    const result = await axios.get("/data.json");
+    const result = await axios.get("https://raw.githubusercontent.com/alifdes/comments/main/public/data.json");
     return result.data.currentUser;
   });
 
   const { isLoading } = useQuery("comments", async () => {
-    const result = await axios.get("/data.json");
+    const result = await axios.get("https://raw.githubusercontent.com/alifdes/comments/main/public/data.json");
     return result.data.comments;
   }, {
     onSuccess: (data) => {
