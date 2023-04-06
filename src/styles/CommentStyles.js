@@ -1,17 +1,19 @@
-
 import styled from "styled-components";
 
 export const Comments = styled.ul`
   list-style: none;
   margin-bottom: 10px;
-  padding: 0px;
   display: flex;
   background: #ffffff;
   min-height: 130px;
   border-radius: 8px;
   max-width: 100%;
-  @media only screen and (min-width: 1000px){
-    margin-bottom: 10px;
+  flex-direction: column-reverse;
+  padding: 20px;
+  position: relative;
+  @media only screen and (min-width: 1000px) {
+    flex-direction: row;
+    padding: 10px;
   }
 `;
 
@@ -24,7 +26,11 @@ export const ReplayButton = styled.button`
   border: none;
   color: #fafdff;
   &:hover {
-    background:#9699d6;
+    background: #9699d6;
+  }
+  @media only screen and (max-width: 1000px) {
+    position: absolute;
+    right: 0px;
   }
 `;
 

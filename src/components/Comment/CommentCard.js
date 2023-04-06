@@ -10,13 +10,20 @@ import CommentDeleteDialogBox from "./CommentDeleteDialogBox";
 
 const CountSection = styled.div`
   display: flex;
+  flex-direction: row;
+  width: 80px;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-radius: 8px;
   align-items: center;
   background: #f5f6fa;
-  margin: 15px;
-  flex-direction: column;
-  width: 50px;
-  border-radius: 8px;
-  height: 80px;
+  @media only screen and (min-width: 1000px) {
+    margin: 15px;
+    flex-direction: column;
+    width: 50px;
+    height: 80px;
+  }
 `;
 
 const Sign = styled.span`
@@ -55,6 +62,31 @@ const ReplaySection = styled.span`
   &:hover {
     color: #dadbe6;
   }
+
+  @media only screen and (max-width: 1000px) {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    height: 50px;
+  }
+`;
+const EditSection = styled.div`
+  color: #5358b6;
+  font-size: 13px;
+  cursor: pointer;
+  .icon {
+    padding-right: 3px;
+  }
+  &:hover {
+    color: #dadbe6;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    height: 50px;
+  }
 `;
 
 const Button = styled.span`
@@ -82,7 +114,7 @@ const CommentUser = styled.span`
   font-weight: bold;
   padding-left: 8px;
 `;
-const CommentCard = ({ data, currentUser,onAddReply }) => {
+const CommentCard = ({ data, currentUser, onAddReply }) => {
   const [editedComment, setEditedComment] = useState(null);
   const [isEdit, setEdited] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
@@ -106,13 +138,17 @@ const CommentCard = ({ data, currentUser,onAddReply }) => {
               <CommentUser>
                 {" "}
                 {data.user?.username}{" "}
-                {currentUser.username === data.user?.username ? <Text>you</Text> : <></>}
+                {currentUser.username === data.user?.username ? (
+                  <Text>you</Text>
+                ) : (
+                  <></>
+                )}
               </CommentUser>
               <span style={{ paddingLeft: "5px" }}> {data.createdAt}</span>
             </CommentAuthor>
 
             {currentUser.username === data.user?.username ? (
-              <div>
+              <EditSection>
                 <Button
                   style={{ color: "red", paddingRight: "3px" }}
                   onClick={() => setShowDialog(true)}
@@ -125,7 +161,7 @@ const CommentCard = ({ data, currentUser,onAddReply }) => {
                   {" "}
                   <MemoIconEdit className="icon" /> Edit
                 </Button>
-              </div>
+              </EditSection>
             ) : (
               <ReplaySection onClick={() => setShowReply(true)}>
                 <MemoIconReply className="icon" />
@@ -149,10 +185,12 @@ const CommentCard = ({ data, currentUser,onAddReply }) => {
           )}
         </Comment>
       </Comments>
-      {showReply && <CommentReplies setShowReply={setShowReply} data={currentUser}  />}
+      {showReply && (
+        <CommentReplies setShowReply={setShowReply} data={currentUser} />
+      )}
       {showDialog && (
         <CommentDeleteDialogBox
-        setShowDialog={setShowDialog}
+          setShowDialog={setShowDialog}
           heading="Delete Comment"
           message="Are you sure you want to delete this comment? This will remove comment and cant be undone."
         />
